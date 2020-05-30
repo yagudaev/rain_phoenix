@@ -1,0 +1,34 @@
+<h1>Listing Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reference nubmer</th>
+      <th>Seller</th>
+      <th>Buyer</th>
+      <th>Status</th>
+      <th>Total</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for order <- @orders do %>
+    <tr>
+      <td><%= order.reference_nubmer %></td>
+      <td><%= order.seller %></td>
+      <td><%= order.buyer %></td>
+      <td><%= order.status %></td>
+      <td><%= order.total %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
+        <span><%= link "Edit", to: Routes.order_path(@conn, :edit, order) %></span>
+        <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Order", to: Routes.order_path(@conn, :new) %></span>
