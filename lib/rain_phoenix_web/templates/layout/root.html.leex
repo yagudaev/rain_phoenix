@@ -10,17 +10,22 @@
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <header>
+    <nav class="navbar">
+      <a class="navbar-brand" href="/" class="">
+        Rain
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <section class="container">
         <nav role="navigation">
           <ul>
             <li><%= link "Orders", to: Routes.order_path(@conn, :index) %></li>
           </ul>
         </nav>
-        <a href="/" class="">
-          Rain
-        </a>
-      </section>
+      </nav>
     </header>
     <%= @inner_content %>
   </body>

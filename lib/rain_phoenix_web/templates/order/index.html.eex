@@ -1,34 +1,35 @@
-<h1 class="pull-left">Listing Orders</h1>
-<span class="pull-right"><%= link "New Order", to: Routes.order_path(@conn, :new), class: 'button' %></span>
+<div class="container">
+  <h1 class="pull-left">Listing Orders</h1>
+  <span class="pull-right"><%= link "New Order", to: Routes.order_path(@conn, :new), class: 'btn btn-primary' %></span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Reference nubmer</th>
-      <th>Seller</th>
-      <th>Buyer</th>
-      <th>Status</th>
-      <th>Total</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <%= for order <- @orders do %>
+  <table>
+    <thead>
       <tr>
-        <td><%= order.reference_nubmer %></td>
-        <td><%= order.seller %></td>
-        <td><%= order.buyer %></td>
-        <td><%= order.status %></td>
-        <td><%= order.total %></td>
+        <th>Reference nubmer</th>
+        <th>Seller</th>
+        <th>Buyer</th>
+        <th>Status</th>
+        <th>Total</th>
 
-        <td>
-          <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
-          <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
-        </td>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<%= pagination_links @page %>
+    </thead>
+    <tbody>
+    <%= for order <- @orders do %>
+        <tr>
+          <td><%= order.reference_nubmer %></td>
+          <td><%= order.seller %></td>
+          <td><%= order.buyer %></td>
+          <td><%= order.status %></td>
+          <td><%= order.total %></td>
 
+          <td>
+            <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
+            <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= pagination_links @page %>
+</div>
