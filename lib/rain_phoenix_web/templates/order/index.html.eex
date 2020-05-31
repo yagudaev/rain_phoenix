@@ -14,20 +14,21 @@
     </tr>
   </thead>
   <tbody>
-<%= for order <- @orders do %>
-    <tr>
-      <td><%= order.reference_nubmer %></td>
-      <td><%= order.seller %></td>
-      <td><%= order.buyer %></td>
-      <td><%= order.status %></td>
-      <td><%= order.total %></td>
+  <%= for order <- @orders do %>
+      <tr>
+        <td><%= order.reference_nubmer %></td>
+        <td><%= order.seller %></td>
+        <td><%= order.buyer %></td>
+        <td><%= order.status %></td>
+        <td><%= order.total %></td>
 
-      <td>
-        <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
-        <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
+        <td>
+          <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
+          <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
+<%= pagination_links @page %>
 

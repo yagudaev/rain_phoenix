@@ -5,9 +5,14 @@ defmodule RainPhoenixWeb.OrderController do
   alias RainPhoenix.Sales.Order
   alias RainPhoenix.Sales.LineItem
 
-  def index(conn, _params) do
-    orders = Sales.list_orders()
-    render(conn, "index.html", orders: orders)
+  def index(conn, params) do
+    page =
+      Sales.list_orders(params)
+
+    render(conn, "index.html",
+      orders: page.entries,
+      page: page
+    )
   end
 
   def new(conn, _params) do
@@ -27,7 +32,7 @@ defmodule RainPhoenixWeb.OrderController do
     end
   end
 
-  def show(conn, %{"id" => id, }) do
+  def show(conn, %{"id" => id}) do
     order = Sales.get_order!(id)
     line_item_changeset = LineItem.changeset(%LineItem{}, %{})
     render(conn, "show.html", order: order, line_item_changeset: line_item_changeset)

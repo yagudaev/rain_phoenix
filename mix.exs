@@ -19,7 +19,7 @@ defmodule RainPhoenix.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {RainPhoenix.Application, []},
+      mod: {RainPhoenix.Application, [:scrivener_html]},
       extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
@@ -33,7 +33,7 @@ defmodule RainPhoenix.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.3"},
+      {:phoenix, "~> 1.5.3", override: true },
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
@@ -46,7 +46,9 @@ defmodule RainPhoenix.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:scrivener_ecto, "~> 2.4"},
+      {:scrivener_html, "~> 1.8"}
     ]
   end
 

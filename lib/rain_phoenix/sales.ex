@@ -17,8 +17,8 @@ defmodule RainPhoenix.Sales do
       [%Order{}, ...]
 
   """
-  def list_orders do
-    Repo.all(Order)
+  def list_orders(params) do
+    Repo.paginate(Order, params)
   end
 
   @doc """
