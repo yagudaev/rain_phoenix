@@ -1,6 +1,11 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
 @import "../node_modules/nprogress/nprogress.css";
+@import "./theme.scss";
+@import "~bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/helpers.sass";
+@import "bulma/sass/grid/columns.sass";
+@import "bulma/sass/elements/button.sass";
 
 /* LiveView specific classes for your customizations */
 .invalid-feedback {
