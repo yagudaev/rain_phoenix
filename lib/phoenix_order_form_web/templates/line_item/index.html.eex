@@ -1,4 +1,4 @@
-<h1>Listing Line items</h1>
+<h1>Line items</h1>
 
 <table>
   <thead>
@@ -22,7 +22,6 @@
       <td><%= line_item.subtotal %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.order_line_item_path(@conn, :show, @order_id, line_item) %></span>
         <span><%= link "Edit", to: Routes.order_line_item_path(@conn, :edit, @order_id, line_item) %></span>
         <span><%= link "Delete", to: Routes.order_line_item_path(@conn, :delete, @order_id, line_item), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
@@ -30,5 +29,3 @@
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Line item", to: Routes.order_line_item_path(@conn, :new, @order_id) %></span>

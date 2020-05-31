@@ -20,10 +20,10 @@ defmodule PhoenixOrderFormWeb.LineItemController do
     order = Sales.get_order!(order_id)
 
     case Sales.create_line_item(order_id, line_item_params) do
-      {:ok, line_item} ->
+      {:ok, _line_item} ->
         conn
         |> put_flash(:info, "Line item created successfully.")
-        |> redirect(to: Routes.order_line_item_path(conn, :show, order_id, line_item))
+        |> redirect(to: Routes.order_path(conn, :show, order))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset, order_id: order_id, order: order)
@@ -48,10 +48,10 @@ defmodule PhoenixOrderFormWeb.LineItemController do
     line_item = Sales.get_line_item!(id)
 
     case Sales.update_line_item(line_item, line_item_params) do
-      {:ok, line_item} ->
+      {:ok, _line_item} ->
         conn
         |> put_flash(:info, "Line item updated successfully.")
-        |> redirect(to: Routes.order_line_item_path(conn, :show, order_id, line_item))
+        |> redirect(to: Routes.order_path(conn, :show, order))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", line_item: line_item, changeset: changeset, order: order, order_id: order_id)
@@ -59,12 +59,12 @@ defmodule PhoenixOrderFormWeb.LineItemController do
   end
 
   def delete(conn, %{"id" => id, "order_id" => order_id}) do
-    _order = Sales.get_order!(order_id)
+    order = Sales.get_order!(order_id)
     line_item = Sales.get_line_item!(id)
     {:ok, _line_item} = Sales.delete_line_item(line_item)
 
     conn
     |> put_flash(:info, "Line item deleted successfully.")
-    |> redirect(to: Routes.order_line_item_path(conn, :index, order_id))
+    |> redirect(to: Routes.order_path(conn, :show, order))
   end
 end

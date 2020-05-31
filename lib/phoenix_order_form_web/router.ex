@@ -20,7 +20,7 @@ defmodule PhoenixOrderFormWeb.Router do
     live "/", PageLive, :index
     get "/hello", HelloController, :index
     resources "/orders", OrderController do
-      resources "/line_items", LineItemController
+      resources "/line_items", LineItemController#, only: [:edit, :create, :update, :delete]
     end
   end
 
