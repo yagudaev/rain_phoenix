@@ -19,7 +19,9 @@ defmodule PhoenixOrderFormWeb.Router do
 
     live "/", PageLive, :index
     get "/hello", HelloController, :index
-    resources "/orders", OrderController
+    resources "/orders", OrderController do
+      resources "/line_items", LineItemController
+    end
   end
 
   # Other scopes may use custom stacks.

@@ -29,5 +29,19 @@
 
 </ul>
 
+
+<%= render PhoenixOrderFormWeb.LineItemView, "index.html",
+                                conn: @conn,
+                                order_id: @order.id,
+                                order: @order,
+                                line_items: @order.line_items %>
+
+
+<%= render PhoenixOrderFormWeb.LineItemView, "new.html",
+                                conn: @conn,
+                                order_id: @order.id,
+                                order: @order,
+                                changeset: @line_item_changeset %>
+
 <span><%= link "Edit", to: Routes.order_path(@conn, :edit, @order) %></span>
 <span><%= link "Back", to: Routes.order_path(@conn, :index) %></span>

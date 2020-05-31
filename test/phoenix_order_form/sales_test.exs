@@ -69,4 +69,71 @@ defmodule PhoenixOrderForm.SalesTest do
       assert %Ecto.Changeset{} = Sales.change_order(order)
     end
   end
+
+  describe "line_items" do
+    alias PhoenixOrderForm.Sales.LineItem
+
+    @valid_attrs %{product: "some product", quantity: 42, size: "some size", subtotal: "120.5", unit_price: "120.5"}
+    @update_attrs %{product: "some updated product", quantity: 43, size: "some updated size", subtotal: "456.7", unit_price: "456.7"}
+    @invalid_attrs %{product: nil, quantity: nil, size: nil, subtotal: nil, unit_price: nil}
+
+    def line_item_fixture(attrs \\ %{}) do
+      {:ok, line_item} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Sales.create_line_item()
+
+      line_item
+    end
+
+    test "list_line_items/0 returns all line_items" do
+      line_item = line_item_fixture()
+      assert Sales.list_line_items() == [line_item]
+    end
+
+    test "get_line_item!/1 returns the line_item with given id" do
+      line_item = line_item_fixture()
+      assert Sales.get_line_item!(line_item.id) == line_item
+    end
+
+    test "create_line_item/1 with valid data creates a line_item" do
+      assert {:ok, %LineItem{} = line_item} = Sales.create_line_item(@valid_attrs)
+      assert line_item.product == "some product"
+      assert line_item.quantity == 42
+      assert line_item.size == "some size"
+      assert line_item.subtotal == Decimal.new("120.5")
+      assert line_item.unit_price == Decimal.new("120.5")
+    end
+
+    test "create_line_item/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Sales.create_line_item(@invalid_attrs)
+    end
+
+    test "update_line_item/2 with valid data updates the line_item" do
+      line_item = line_item_fixture()
+      assert {:ok, %LineItem{} = line_item} = Sales.update_line_item(line_item, @update_attrs)
+      assert line_item.product == "some updated product"
+      assert line_item.quantity == 43
+      assert line_item.size == "some updated size"
+      assert line_item.subtotal == Decimal.new("456.7")
+      assert line_item.unit_price == Decimal.new("456.7")
+    end
+
+    test "update_line_item/2 with invalid data returns error changeset" do
+      line_item = line_item_fixture()
+      assert {:error, %Ecto.Changeset{}} = Sales.update_line_item(line_item, @invalid_attrs)
+      assert line_item == Sales.get_line_item!(line_item.id)
+    end
+
+    test "delete_line_item/1 deletes the line_item" do
+      line_item = line_item_fixture()
+      assert {:ok, %LineItem{}} = Sales.delete_line_item(line_item)
+      assert_raise Ecto.NoResultsError, fn -> Sales.get_line_item!(line_item.id) end
+    end
+
+    test "change_line_item/1 returns a line_item changeset" do
+      line_item = line_item_fixture()
+      assert %Ecto.Changeset{} = Sales.change_line_item(line_item)
+    end
+  end
 end

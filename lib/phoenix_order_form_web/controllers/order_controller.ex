@@ -3,6 +3,7 @@ defmodule PhoenixOrderFormWeb.OrderController do
 
   alias PhoenixOrderForm.Sales
   alias PhoenixOrderForm.Sales.Order
+  alias PhoenixOrderForm.Sales.LineItem
 
   def index(conn, _params) do
     orders = Sales.list_orders()
@@ -26,9 +27,10 @@ defmodule PhoenixOrderFormWeb.OrderController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id, }) do
     order = Sales.get_order!(id)
-    render(conn, "show.html", order: order)
+    line_item_changeset = LineItem.changeset(%LineItem{}, %{})
+    render(conn, "show.html", order: order, line_item_changeset: line_item_changeset)
   end
 
   def edit(conn, %{"id" => id}) do

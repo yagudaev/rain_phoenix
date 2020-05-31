@@ -1,0 +1,33 @@
+<h1>Show Line item</h1>
+
+<ul>
+
+  <li>
+    <strong>Product:</strong>
+    <%= @line_item.product %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @line_item.size %>
+  </li>
+
+  <li>
+    <strong>Unit price:</strong>
+    <%= @line_item.unit_price %>
+  </li>
+
+  <li>
+    <strong>Quantity:</strong>
+    <%= @line_item.quantity %>
+  </li>
+
+  <li>
+    <strong>Subtotal:</strong>
+    <%= @line_item.subtotal %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.order_line_item_path(@conn, :edit, @order_id, @line_item) %></span>
+<span><%= link "Back", to: Routes.order_line_item_path(@conn, :index, @order_id) %></span>
