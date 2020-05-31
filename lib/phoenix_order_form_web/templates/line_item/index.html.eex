@@ -1,31 +1,69 @@
 <h1>Line items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Size</th>
-      <th>Unit price</th>
-      <th>Quantity</th>
-      <th>Subtotal</th>
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Size</th>
+        <th>Unit price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for line_item <- @line_items do %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <%= for line_item <- @line_items do %>
+      <tr>
+        <td><%= line_item.product %></td>
+        <td><%= line_item.size %></td>
+        <td><%= line_item.unit_price %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= line_item.subtotal %></td>
+
+        <td>
+          <span><%= link "Edit", to: Routes.order_line_item_path(@conn, :edit, @order_id, line_item) %></span>
+          <span><%= link "Delete", to: Routes.order_line_item_path(@conn, :delete, @order_id, line_item), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+
+   <%# TOOD: maybe extarct it into it's own partial? %>
     <tr>
-      <td><%= line_item.product %></td>
-      <td><%= line_item.size %></td>
-      <td><%= line_item.unit_price %></td>
-      <td><%= line_item.quantity %></td>
-      <td><%= line_item.subtotal %></td>
+      <td>
+        <%= text_input f, :product, placeholder: 'product' %>
+        <%= error_tag f, :product %>
+      </td>
+      <td>
+        <%= text_input f, :size, placeholder: 'size' %>
+        <%= error_tag f, :size %>
+      </td>
+      <td>
+        <%= number_input f, :unit_price, step: "any", placeholder: 'unit price' %>
+        <%= error_tag f, :unit_price %>
+      </td>
 
       <td>
-        <span><%= link "Edit", to: Routes.order_line_item_path(@conn, :edit, @order_id, line_item) %></span>
-        <span><%= link "Delete", to: Routes.order_line_item_path(@conn, :delete, @order_id, line_item), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <%= number_input f, :quantity, placeholder: 'quantity' %>
+        <%= error_tag f, :quantity %>
+      </td>
+      <td>
+        <%= number_input f, :subtotal, step: "any", placeholder: 'subtotal' %>
+        <%= error_tag f, :subtotal %>
+      </td>
+      <td>
+        <%= submit "Save" %>
       </td>
     </tr>
-<% end %>
   </tbody>
 </table>
+<% end %>
+
+
