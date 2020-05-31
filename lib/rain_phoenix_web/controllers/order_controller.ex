@@ -1,9 +1,9 @@
-defmodule PhoenixOrderFormWeb.OrderController do
-  use PhoenixOrderFormWeb, :controller
+defmodule RainPhoenixWeb.OrderController do
+  use RainPhoenixWeb, :controller
 
-  alias PhoenixOrderForm.Sales
-  alias PhoenixOrderForm.Sales.Order
-  alias PhoenixOrderForm.Sales.LineItem
+  alias RainPhoenix.Sales
+  alias RainPhoenix.Sales.Order
+  alias RainPhoenix.Sales.LineItem
 
   def index(conn, _params) do
     orders = Sales.list_orders()

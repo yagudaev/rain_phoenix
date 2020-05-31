@@ -31,7 +31,7 @@
 <span><%= link "Edit", to: Routes.order_path(@conn, :edit, @order) %></span>
 
 
-<%= render PhoenixOrderFormWeb.LineItemView, "index.html",
+<%= render RainPhoenixWeb.LineItemView, "index.html",
                                 conn: @conn,
                                 order_id: @order.id,
                                 order: @order,
@@ -40,7 +40,7 @@
                                 action: Routes.order_line_item_path(@conn, :create, @order.id) %>
 
 
-<%#= render PhoenixOrderFormWeb.LineItemView, "new.html",
+<%#= render RainPhoenixWeb.LineItemView, "new.html",
                                 conn: @conn,
                                 order_id: @order.id,
                                 order: @order,

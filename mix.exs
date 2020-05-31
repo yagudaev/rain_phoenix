@@ -1,9 +1,9 @@
-defmodule PhoenixOrderForm.MixProject do
+defmodule RainPhoenix.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenix_order_form,
+      app: :rain_phoenix,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule PhoenixOrderForm.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {PhoenixOrderForm.Application, []},
+      mod: {RainPhoenix.Application, []},
       extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end

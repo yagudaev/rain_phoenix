@@ -1,4 +1,4 @@
-defmodule PhoenixOrderForm.Sales.LineItem do
+defmodule RainPhoenix.Sales.LineItem do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -8,7 +8,7 @@ defmodule PhoenixOrderForm.Sales.LineItem do
     field :size, :string
     field :subtotal, :decimal
     field :unit_price, :decimal
-    belongs_to :order, PhoenixOrderForm.Sales.Order
+    belongs_to :order, RainPhoenix.Sales.Order
 
     timestamps()
   end

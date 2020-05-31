@@ -1,5 +1,5 @@
-defmodule PhoenixOrderFormWeb.LayoutViewTest do
-  use PhoenixOrderFormWeb.ConnCase, async: true
+defmodule RainPhoenixWeb.LayoutViewTest do
+  use RainPhoenixWeb.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper

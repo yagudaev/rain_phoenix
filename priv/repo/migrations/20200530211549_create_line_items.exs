@@ -1,4 +1,4 @@
-defmodule PhoenixOrderForm.Repo.Migrations.CreateLineItems do
+defmodule RainPhoenix.Repo.Migrations.CreateLineItems do
   use Ecto.Migration
 
   def change do

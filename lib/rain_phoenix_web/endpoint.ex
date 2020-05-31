@@ -1,16 +1,16 @@
-defmodule PhoenixOrderFormWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :phoenix_order_form
+defmodule RainPhoenixWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :rain_phoenix
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_phoenix_order_form_key",
+    key: "_rain_phoenix_key",
     signing_salt: "El1MTZ+O"
   ]
 
-  socket "/socket", PhoenixOrderFormWeb.UserSocket,
+  socket "/socket", RainPhoenixWeb.UserSocket,
     websocket: [timeout: 45_000],
     longpoll: false
 
@@ -22,7 +22,7 @@ defmodule PhoenixOrderFormWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :phoenix_order_form,
+    from: :rain_phoenix,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -32,7 +32,7 @@ defmodule PhoenixOrderFormWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :phoenix_order_form
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :rain_phoenix
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -50,5 +50,5 @@ defmodule PhoenixOrderFormWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PhoenixOrderFormWeb.Router
+  plug RainPhoenixWeb.Router
 end

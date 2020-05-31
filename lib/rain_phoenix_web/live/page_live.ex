@@ -1,5 +1,5 @@
-defmodule PhoenixOrderFormWeb.PageLive do
-  use PhoenixOrderFormWeb, :live_view
+defmodule RainPhoenixWeb.PageLive do
+  use RainPhoenixWeb, :live_view
 
   @impl true
   def mount(_params, _session, socket) do
@@ -26,7 +26,7 @@ defmodule PhoenixOrderFormWeb.PageLive do
   end
 
   defp search(query) do
-    if not PhoenixOrderFormWeb.Endpoint.config(:code_reloader) do
+    if not RainPhoenixWeb.Endpoint.config(:code_reloader) do
       raise "action disabled when not in development"
     end
 

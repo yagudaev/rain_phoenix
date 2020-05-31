@@ -1,5 +1,5 @@
-defmodule PhoenixOrderFormWeb.ErrorView do
-  use PhoenixOrderFormWeb, :view
+defmodule RainPhoenixWeb.ErrorView do
+  use RainPhoenixWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

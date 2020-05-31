@@ -1,5 +1,5 @@
-defmodule PhoenixOrderFormWeb.PageLiveTest do
-  use PhoenixOrderFormWeb.ConnCase
+defmodule RainPhoenixWeb.PageLiveTest do
+  use RainPhoenixWeb.ConnCase
 
   import Phoenix.LiveViewTest
 

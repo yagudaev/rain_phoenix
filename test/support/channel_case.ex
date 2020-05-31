@@ -1,4 +1,4 @@
-defmodule PhoenixOrderFormWeb.ChannelCase do
+defmodule RainPhoenixWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule PhoenixOrderFormWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use PhoenixOrderFormWeb.ChannelCase, async: true`, although
+  by setting `use RainPhoenixWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule PhoenixOrderFormWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import PhoenixOrderFormWeb.ChannelCase
+      import RainPhoenixWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint PhoenixOrderFormWeb.Endpoint
+      @endpoint RainPhoenixWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PhoenixOrderForm.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(RainPhoenix.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(PhoenixOrderForm.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(RainPhoenix.Repo, {:shared, self()})
     end
 
     :ok

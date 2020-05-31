@@ -1,4 +1,4 @@
-defmodule PhoenixOrderFormWeb.Telemetry do
+defmodule RainPhoenixWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule PhoenixOrderFormWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("phoenix_order_form.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("phoenix_order_form.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("phoenix_order_form.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("phoenix_order_form.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("phoenix_order_form.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("rain_phoenix.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("rain_phoenix.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("rain_phoenix.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("rain_phoenix.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("rain_phoenix.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule PhoenixOrderFormWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {PhoenixOrderFormWeb, :count_users, []}
+      # {RainPhoenixWeb, :count_users, []}
     ]
   end
 end

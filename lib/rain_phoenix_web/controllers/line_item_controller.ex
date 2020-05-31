@@ -1,8 +1,8 @@
-defmodule PhoenixOrderFormWeb.LineItemController do
-  use PhoenixOrderFormWeb, :controller
+defmodule RainPhoenixWeb.LineItemController do
+  use RainPhoenixWeb, :controller
 
-  alias PhoenixOrderForm.Sales
-  alias PhoenixOrderForm.Sales.LineItem
+  alias RainPhoenix.Sales
+  alias RainPhoenix.Sales.LineItem
 
   def index(conn, %{"order_id" => order_id}) do
     order = Sales.get_order!(order_id)

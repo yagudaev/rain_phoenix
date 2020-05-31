@@ -1,10 +1,10 @@
-defmodule PhoenixOrderForm.SalesTest do
-  use PhoenixOrderForm.DataCase
+defmodule RainPhoenix.SalesTest do
+  use RainPhoenix.DataCase
 
-  alias PhoenixOrderForm.Sales
+  alias RainPhoenix.Sales
 
   describe "orders" do
-    alias PhoenixOrderForm.Sales.Order
+    alias RainPhoenix.Sales.Order
 
     @valid_attrs %{buyer: "some buyer", reference_nubmer: 42, seller: "some seller", status: "some status", total: "120.5"}
     @update_attrs %{buyer: "some updated buyer", reference_nubmer: 43, seller: "some updated seller", status: "some updated status", total: "456.7"}
@@ -71,7 +71,7 @@ defmodule PhoenixOrderForm.SalesTest do
   end
 
   describe "line_items" do
-    alias PhoenixOrderForm.Sales.LineItem
+    alias RainPhoenix.Sales.LineItem
 
     @valid_attrs %{product: "some product", quantity: 42, size: "some size", subtotal: "120.5", unit_price: "120.5"}
     @update_attrs %{product: "some updated product", quantity: 43, size: "some updated size", subtotal: "456.7", unit_price: "456.7"}

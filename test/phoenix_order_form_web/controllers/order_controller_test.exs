@@ -1,7 +1,7 @@
-defmodule PhoenixOrderFormWeb.OrderControllerTest do
-  use PhoenixOrderFormWeb.ConnCase
+defmodule RainPhoenixWeb.OrderControllerTest do
+  use RainPhoenixWeb.ConnCase
 
-  alias PhoenixOrderForm.Sales
+  alias RainPhoenix.Sales
 
   @create_attrs %{buyer: "some buyer", reference_nubmer: 42, seller: "some seller", status: "some status", total: "120.5"}
   @update_attrs %{buyer: "some updated buyer", reference_nubmer: 43, seller: "some updated seller", status: "some updated status", total: "456.7"}

@@ -1,8 +1,8 @@
-defmodule PhoenixOrderFormWeb.UserSocket do
+defmodule RainPhoenixWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", PhoenixOrderFormWeb.RoomChannel
+  # channel "room:*", RainPhoenixWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -27,7 +27,7 @@ defmodule PhoenixOrderFormWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     PhoenixOrderFormWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     RainPhoenixWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   @impl true

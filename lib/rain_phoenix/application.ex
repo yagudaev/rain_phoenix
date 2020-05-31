@@ -1,4 +1,4 @@
-defmodule PhoenixOrderForm.Application do
+defmodule RainPhoenix.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,27 +8,27 @@ defmodule PhoenixOrderForm.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      PhoenixOrderForm.Repo,
+      RainPhoenix.Repo,
       # Start the Telemetry supervisor
-      PhoenixOrderFormWeb.Telemetry,
+      RainPhoenixWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: PhoenixOrderForm.PubSub},
+      {Phoenix.PubSub, name: RainPhoenix.PubSub},
       # Start the Endpoint (http/https)
-      PhoenixOrderFormWeb.Endpoint
-      # Start a worker by calling: PhoenixOrderForm.Worker.start_link(arg)
-      # {PhoenixOrderForm.Worker, arg}
+      RainPhoenixWeb.Endpoint
+      # Start a worker by calling: RainPhoenix.Worker.start_link(arg)
+      # {RainPhoenix.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: PhoenixOrderForm.Supervisor]
+    opts = [strategy: :one_for_one, name: RainPhoenix.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    PhoenixOrderFormWeb.Endpoint.config_change(changed, removed)
+    RainPhoenixWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

@@ -1,11 +1,11 @@
-defmodule PhoenixOrderFormWeb.Gettext do
+defmodule RainPhoenixWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import PhoenixOrderFormWeb.Gettext
+      import RainPhoenixWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule PhoenixOrderFormWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :phoenix_order_form
+  use Gettext, otp_app: :rain_phoenix
 end

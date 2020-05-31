@@ -1,12 +1,12 @@
-defmodule PhoenixOrderForm.Sales do
+defmodule RainPhoenix.Sales do
   @moduledoc """
   The Sales context.
   """
 
   import Ecto.Query, warn: false
-  alias PhoenixOrderForm.Repo
+  alias RainPhoenix.Repo
 
-  alias PhoenixOrderForm.Sales.Order
+  alias RainPhoenix.Sales.Order
 
   @doc """
   Returns the list of orders.
@@ -105,7 +105,7 @@ defmodule PhoenixOrderForm.Sales do
     Order.changeset(order, attrs)
   end
 
-  alias PhoenixOrderForm.Sales.LineItem
+  alias RainPhoenix.Sales.LineItem
 
   @doc """
   Returns the list of line_items.

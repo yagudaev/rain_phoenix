@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :phoenix_order_form,
-  ecto_repos: [PhoenixOrderForm.Repo]
+config :rain_phoenix,
+  ecto_repos: [RainPhoenix.Repo]
 
 # Configures the endpoint
-config :phoenix_order_form, PhoenixOrderFormWeb.Endpoint,
+config :rain_phoenix, RainPhoenixWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "7ZUHfBJxaC0ydipUN+HHSBI/L/IQvHaPHdS/PJPMBhtHPh4J3L6NJCTyuY+tIb8d",
-  render_errors: [view: PhoenixOrderFormWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: PhoenixOrderForm.PubSub,
+  render_errors: [view: RainPhoenixWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: RainPhoenix.PubSub,
   live_view: [signing_salt: "fh5/bdMY"]
 
 # Configures Elixir's Logger

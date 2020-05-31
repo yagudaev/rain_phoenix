@@ -1,14 +1,14 @@
-defmodule PhoenixOrderFormWeb.ErrorViewTest do
-  use PhoenixOrderFormWeb.ConnCase, async: true
+defmodule RainPhoenixWeb.ErrorViewTest do
+  use RainPhoenixWeb.ConnCase, async: true
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(PhoenixOrderFormWeb.ErrorView, "404.html", []) == "Not Found"
+    assert render_to_string(RainPhoenixWeb.ErrorView, "404.html", []) == "Not Found"
   end
 
   test "renders 500.html" do
-    assert render_to_string(PhoenixOrderFormWeb.ErrorView, "500.html", []) == "Internal Server Error"
+    assert render_to_string(RainPhoenixWeb.ErrorView, "500.html", []) == "Internal Server Error"
   end
 end

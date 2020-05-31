@@ -1,7 +1,7 @@
-defmodule PhoenixOrderFormWeb.LineItemControllerTest do
-  use PhoenixOrderFormWeb.ConnCase
+defmodule RainPhoenixWeb.LineItemControllerTest do
+  use RainPhoenixWeb.ConnCase
 
-  alias PhoenixOrderForm.Sales
+  alias RainPhoenix.Sales
 
   @create_attrs %{product: "some product", quantity: 42, size: "some size", subtotal: "120.5", unit_price: "120.5"}
   @update_attrs %{product: "some updated product", quantity: 43, size: "some updated size", subtotal: "456.7", unit_price: "456.7"}

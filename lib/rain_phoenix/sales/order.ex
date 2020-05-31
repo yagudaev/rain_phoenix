@@ -1,7 +1,7 @@
-defmodule PhoenixOrderForm.Sales.Order do
+defmodule RainPhoenix.Sales.Order do
   use Ecto.Schema
   import Ecto.Changeset
-  alias PhoenixOrderForm.Sales.LineItem
+  alias RainPhoenix.Sales.LineItem
 
   schema "orders" do
     field :buyer, :string
