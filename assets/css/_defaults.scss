@@ -1,0 +1,34 @@
+// This file specifies the default styles for things like table, form, etc.
+// Our belief is that things should look good by default. Conventions over configurations
+
+table {
+  @extend .table;
+}
+
+h1 {
+  @extend .is-size-2;
+}
+
+h2 {
+  @extend .is-size-3;
+}
+
+label {
+  @extend .label;
+}
+
+input {
+  @extend .input;
+}
+
+button {
+  @extend .button;
+  &[type="submit"] {
+    @extend .is-primary;
+  }
+}
+
+.invalid-feedback {
+  @extend .help;
+  @extend .is-danger;
+}

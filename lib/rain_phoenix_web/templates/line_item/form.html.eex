@@ -5,9 +5,13 @@
     </div>
   <% end %>
 
-  <%= label f, :product %>
-  <%= text_input f, :product %>
-  <%= error_tag f, :product %>
+  <div class="field">
+    <div class="control">
+      <%= label f, :product %>
+      <%= text_input f, :product %>
+    </div>
+    <%= error_tag f, :product %>
+  </div>
 
   <%= label f, :size %>
   <%= text_input f, :size %>

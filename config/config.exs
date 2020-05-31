@@ -32,4 +32,4 @@ import_config "#{Mix.env()}.exs"
 
 config :scrivener_html,
   routes_helper: RainPhoenix.Router.Helpers,
-  view_style: :bootstrap
+  view_style: :bulma

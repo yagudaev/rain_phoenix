@@ -1,5 +1,5 @@
-<div class="columns">
-  <h1 class="column">Listing Orders</h1>
+<div class="columns is-mobile is-vcentered">
+  <h1 class="column">Orders</h1>
   <span class="column"><%= link "New Order", to: Routes.order_path(@conn, :new), class: "button is-primary is-medium is-pulled-right" %></span>
 </div>
 <table>
@@ -31,5 +31,7 @@
   <% end %>
   </tbody>
 </table>
-<%= pagination_links @page %>
+<div class="is-pulled-left">
+  <%= pagination_links @page, class: "is-left" %>
+</div>
 

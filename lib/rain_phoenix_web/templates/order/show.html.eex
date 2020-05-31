@@ -1,49 +1,40 @@
-<h1>Show Order</h1>
+<h1>Order #<%= @order.reference_nubmer %></h1>
 
-<ul>
-  <li>
-    <strong>Reference nubmer:</strong>
-    <%= @order.reference_nubmer %>
-  </li>
+<div class="columns">
+  <div class="column">
+    <%= render RainPhoenixWeb.LineItemView, "index.html",
+                                    conn: @conn,
+                                    order_id: @order.id,
+                                    order: @order,
+                                    line_items: @order.line_items,
+                                    changeset: @line_item_changeset,
+                                    action: Routes.order_line_item_path(@conn, :create, @order.id) %>
+  </div>
+  <div class="column">
+    <ul>
+      <li>
+        <strong>Seller:</strong>
+        <%= @order.seller %>
+      </li>
 
-  <li>
-    <strong>Seller:</strong>
-    <%= @order.seller %>
-  </li>
+      <li>
+        <strong>Buyer:</strong>
+        <%= @order.buyer %>
+      </li>
 
-  <li>
-    <strong>Buyer:</strong>
-    <%= @order.buyer %>
-  </li>
+      <li>
+        <strong>Status:</strong>
+        <%= @order.status %>
+      </li>
 
-  <li>
-    <strong>Status:</strong>
-    <%= @order.status %>
-  </li>
+      <li>
+        <strong>Total:</strong>
+        <%= @order.total %>
+      </li>
 
-  <li>
-    <strong>Total:</strong>
-    <%= @order.total %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.order_path(@conn, :edit, @order) %></span>
-
-
-<%= render RainPhoenixWeb.LineItemView, "index.html",
-                                conn: @conn,
-                                order_id: @order.id,
-                                order: @order,
-                                line_items: @order.line_items,
-                                changeset: @line_item_changeset,
-                                action: Routes.order_line_item_path(@conn, :create, @order.id) %>
-
-
-<%#= render RainPhoenixWeb.LineItemView, "new.html",
-                                conn: @conn,
-                                order_id: @order.id,
-                                order: @order,
-                                changeset: @line_item_changeset %>
+    </ul>
+    <span><%= link "Edit", to: Routes.order_path(@conn, :edit, @order) %></span>
+  </div>
+</div>
 
 <span><%= link "Back", to: Routes.order_path(@conn, :index) %></span>

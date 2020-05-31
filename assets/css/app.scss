@@ -1,11 +1,16 @@
 /* This file is for your main application css. */
-@import "./phoenix.css";
 @import "../node_modules/nprogress/nprogress.css";
 @import "./theme.scss";
 @import "~bulma/sass/utilities/_all.sass";
-@import "bulma/sass/base/helpers.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/form/_all.sass";
 @import "bulma/sass/grid/columns.sass";
-@import "bulma/sass/elements/button.sass";
+// @import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/_all.sass";
+@import "bulma/sass/layout/_all.sass";
+@import "bulma/sass/components/pagination.sass";
+
+@import "./defaults";
 
 /* LiveView specific classes for your customizations */
 .invalid-feedback {
@@ -92,12 +97,4 @@
 }
 .alert:empty {
   display: none;
-}
-
-.pull-right {
-  float: right;
-}
-
-.pull-left {
-  float: left;
 }
