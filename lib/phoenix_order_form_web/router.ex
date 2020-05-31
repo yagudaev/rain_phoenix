@@ -17,8 +17,8 @@ defmodule PhoenixOrderFormWeb.Router do
   scope "/", PhoenixOrderFormWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
-    get "/hello", HelloController, :index
+    # live "/", PageLive, :index
+    get "/", OrderController, :index
     resources "/orders", OrderController do
       resources "/line_items", LineItemController#, only: [:edit, :create, :update, :delete]
     end

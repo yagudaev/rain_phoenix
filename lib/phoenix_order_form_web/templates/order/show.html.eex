@@ -27,6 +27,7 @@
   </li>
 
 </ul>
+
 <span><%= link "Edit", to: Routes.order_path(@conn, :edit, @order) %></span>
 
 
