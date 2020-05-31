@@ -1,4 +1,5 @@
-<h1>Listing Orders</h1>
+<h1 class="pull-left">Listing Orders</h1>
+<span class="pull-right"><%= link "New Order", to: Routes.order_path(@conn, :new), class: 'button' %></span>
 
 <table>
   <thead>
@@ -23,7 +24,6 @@
 
       <td>
         <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
-        <span><%= link "Edit", to: Routes.order_path(@conn, :edit, order) %></span>
         <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
@@ -31,4 +31,3 @@
   </tbody>
 </table>
 
-<span><%= link "New Order", to: Routes.order_path(@conn, :new) %></span>
