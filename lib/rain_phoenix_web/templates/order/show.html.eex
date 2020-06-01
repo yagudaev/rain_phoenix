@@ -40,10 +40,4 @@
                                 action: Routes.order_line_item_path(@conn, :create, @order.id) %>
 
 
-<%#= render RainPhoenixWeb.LineItemView, "new.html",
-                                conn: @conn,
-                                order_id: @order.id,
-                                order: @order,
-                                changeset: @line_item_changeset %>
-
 <span><%= link "Back", to: Routes.order_path(@conn, :index) %></span>
