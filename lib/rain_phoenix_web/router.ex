@@ -22,6 +22,13 @@ defmodule RainPhoenixWeb.Router do
     resources "/orders", OrderController do
       resources "/line_items", LineItemController#, only: [:edit, :create, :update, :delete]
     end
+
+    live "/products", ProductLive.Index, :index
+    live "/products/new", ProductLive.Index, :new
+    live "/products/:id/edit", ProductLive.Index, :edit
+
+    live "/products/:id", ProductLive.Show, :show
+    live "/products/:id/show/edit", ProductLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
